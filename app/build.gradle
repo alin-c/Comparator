@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'ro.ac.comparator'
+            keyPassword '_your_own_password1'
+            storeFile file('D:/Projects/Android/Comparator.jks') //replace with your own .jks file path; to generate keystore, see: https://support.globalsign.com/customer/en/portal/articles/2121490-java-keytool---create-keystore
+            storePassword '_your_own_password1'
+        }
+    }
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
+    defaultConfig {
+        def applicationName = "Comparator"
+        applicationId "ro.ac.comparator"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 4
+        versionName "1.0.5"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        setProperty("archivesBaseName", "$applicationName-$versionName")
+        signingConfig signingConfigs.config
+        resValue 'string', 'application_name', applicationName
+        resValue 'string', 'application_version', versionName
+    }
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            jniDebuggable false
+            renderscriptDebuggable false
+            pseudoLocalesEnabled true
+            zipAlignEnabled true
+            signingConfig signingConfigs.config
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.google.android.material:material:1.0.0'
+}

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:focusable="true"
+	android:focusableInTouchMode="true"
+	tools:context=".MainActivity">
+
+	<Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="@android:dimen/notification_large_icon_height"
+		android:background="@color/colorPrimary"
+		android:minHeight="@android:dimen/notification_large_icon_height"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+		<ImageView
+			android:id="@+id/imageIcon"
+			android:layout_width="@android:dimen/app_icon_size"
+			android:layout_height="@android:dimen/app_icon_size"
+			android:contentDescription="@string/application_name"
+			android:src="@drawable/ic_icon"
+			tools:layout_editor_absoluteX="0dp"
+			tools:layout_editor_absoluteY="0dp" />
+
+		<TextView
+			android:id="@+id/textTitle"
+			style="@android:style/TextAppearance.Material.Large"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:fontFamily="sans-serif-condensed"
+			android:paddingStart="10dp"
+			android:text="@string/application_name"
+			android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+			android:textColor="@color/colorBackground"
+			tools:layout_editor_absoluteX="16dp"
+			tools:layout_editor_absoluteY="9dp" />
+	</Toolbar>
+
+	<TextView
+		android:id="@+id/labelProduct1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="64dp"
+		android:layout_marginEnd="8dp"
+		android:fontFamily="sans-serif-condensed"
+		android:text="@string/product_1"
+		android:textAppearance="@style/TextAppearance.AppCompat.Title"
+		android:textColor="@color/blue"
+		android:textSize="24sp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+	<com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/layoutTextPrice1"
+		android:layout_width="0dp"
+		android:layout_height="64dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginTop="16dp"
+		android:layout_marginEnd="8dp"
+		android:textAlignment="textStart"
+		app:layout_constraintEnd_toStartOf="@+id/layoutTextQuantity1"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/labelProduct1">
+
+		<EditText
+			android:id="@+id/textPrice1"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:ems="10"
+			android:fontFamily="sans-serif-condensed"
+			android:hint="@string/price"
+			android:imeOptions="actionNext"
+			android:importantForAutofill="no"
+			android:inputType="numberDecimal"
+			android:textAlignment="textStart"
+			android:textSize="18sp"
+			tools:targetApi="o" />
+	</com.google.android.material.textfield.TextInputLayout>
+
+	<com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/layoutTextQuantity1"
+		android:layout_width="0dp"
+		android:layout_height="64dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="16dp"
+
+		android:textAlignment="textStart"
+		app:layout_constraintEnd_toStartOf="@+id/spinnerUnit1"
+		app:layout_constraintStart_toEndOf="@+id/layoutTextPrice1"
+		app:layout_constraintTop_toTopOf="@+id/layoutTextPrice1">
+
+		<EditText
+			android:id="@+id/textQuantity1"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:ems="10"
+			android:fontFamily="sans-serif-condensed"
+			android:hint="@string/quantity"
+			android:imeOptions="actionNext"
+			android:importantForAutofill="no"
+			android:inputType="numberDecimal"
+			android:textAlignment="textStart"
+			android:textSize="18sp"
+			tools:targetApi="o" />
+	</com.google.android.material.textfield.TextInputLayout>
+
+	<Spinner
+		android:id="@+id/spinnerUnit1"
+		android:layout_width="85dp"
+		android:layout_height="0dp"
+		android:layout_marginEnd="32dp"
+		android:entries="@array/units"
+		app:layout_constraintBottom_toBottomOf="@+id/layoutTextQuantity1"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/layoutTextQuantity1" />
+
+	<TextView
+		android:id="@+id/textPriceLabel1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="16dp"
+		android:text="@string/currency"
+		app:layout_constraintEnd_toEndOf="@+id/layoutTextPrice1"
+		app:layout_constraintTop_toBottomOf="@+id/layoutTextPrice1" />
+
+	<TextView
+		android:id="@+id/labelTextQuantity1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="16dp"
+		app:layout_constraintEnd_toEndOf="@+id/layoutTextQuantity1"
+		app:layout_constraintTop_toBottomOf="@+id/layoutTextQuantity1" />
+
+	<TextView
+		android:id="@+id/labelPricePerUnit1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		app:layout_constraintEnd_toEndOf="@+id/spinnerUnit1"
+		app:layout_constraintTop_toBottomOf="@+id/spinnerUnit1" />
+
+	<TextView
+		android:id="@+id/labelProduct2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="64dp"
+		android:layout_marginEnd="8dp"
+		android:fontFamily="sans-serif-condensed"
+		android:text="@string/product_2"
+		android:textAppearance="@style/TextAppearance.AppCompat.Title"
+		android:textColor="@color/blue"
+		android:textSize="24sp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/textPriceLabel1" />
+
+	<com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/layoutTextPrice2"
+		android:layout_width="0dp"
+		android:layout_height="64dp"
+		android:layout_marginStart="32dp"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		android:textAlignment="textStart"
+		app:layout_constraintEnd_toStartOf="@+id/layoutTextQuantity2"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/labelProduct2">
+
+		<EditText
+			android:id="@+id/textPrice2"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:ems="10"
+			android:fontFamily="sans-serif-condensed"
+			android:hint="@string/price"
+			android:imeOptions="actionNext"
+			android:importantForAutofill="no"
+			android:inputType="numberDecimal"
+			android:textAlignment="textStart"
+			android:textSize="18sp"
+			tools:targetApi="o" />
+	</com.google.android.material.textfield.TextInputLayout>
+
+	<com.google.android.material.textfield.TextInputLayout
+		android:id="@+id/layoutTextQuantity2"
+		android:layout_width="0dp"
+		android:layout_height="64dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="16dp"
+		android:textAlignment="textStart"
+		app:layout_constraintEnd_toStartOf="@+id/spinnerUnit2"
+		app:layout_constraintStart_toEndOf="@+id/layoutTextPrice2"
+		app:layout_constraintTop_toTopOf="@+id/layoutTextPrice2">
+
+		<EditText
+			android:id="@+id/textQuantity2"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:ems="10"
+			android:fontFamily="sans-serif-condensed"
+			android:hint="@string/quantity"
+			android:imeOptions="actionDone"
+			android:importantForAutofill="no"
+			android:inputType="numberDecimal"
+			android:textAlignment="textStart"
+			android:textSize="18sp"
+			tools:targetApi="o" />
+	</com.google.android.material.textfield.TextInputLayout>
+
+	<Spinner
+		android:id="@+id/spinnerUnit2"
+		android:layout_width="85dp"
+		android:layout_height="0dp"
+		android:layout_marginEnd="32dp"
+		android:entries="@array/units"
+		app:layout_constraintBottom_toBottomOf="@+id/layoutTextQuantity2"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/layoutTextQuantity2" />
+
+	<TextView
+		android:id="@+id/textPriceLabel2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="16dp"
+		android:text="@string/currency"
+		app:layout_constraintEnd_toEndOf="@+id/layoutTextPrice2"
+		app:layout_constraintTop_toBottomOf="@+id/layoutTextPrice2" />
+
+	<TextView
+		android:id="@+id/labelTextQuantity2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="16dp"
+		app:layout_constraintEnd_toEndOf="@+id/layoutTextQuantity2"
+		app:layout_constraintTop_toBottomOf="@+id/layoutTextQuantity2" />
+
+	<TextView
+		android:id="@+id/labelPricePerUnit2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginEnd="8dp"
+		app:layout_constraintEnd_toEndOf="@+id/spinnerUnit2"
+		app:layout_constraintTop_toBottomOf="@+id/spinnerUnit2" />
+
+	<ImageButton
+		android:id="@+id/buttonClear"
+		android:layout_width="0dp"
+		android:layout_height="@android:dimen/app_icon_size"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="64dp"
+		android:layout_marginEnd="6dp"
+		android:background="@color/resetButtonBackground"
+		android:onClick="onClear"
+		android:src="@android:drawable/ic_delete"
+		app:layout_constraintEnd_toStartOf="@+id/buttonCalculate"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/textPriceLabel2"
+		tools:ignore="ContentDescription" />
+
+	<ImageButton
+		android:id="@+id/buttonCalculate"
+		android:layout_width="0dp"
+		android:layout_height="@android:dimen/app_icon_size"
+		android:layout_marginStart="8dp"
+		android:layout_marginEnd="16dp"
+		android:background="@android:color/holo_blue_light"
+		android:onClick="onCalculate"
+		android:src="@android:drawable/ic_media_play"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/buttonClear"
+		app:layout_constraintTop_toTopOf="@+id/buttonClear"
+		tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

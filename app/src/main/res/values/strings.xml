@@ -1,0 +1,7 @@
+<resources>
+	<string name="currency">lei</string>
+	<string name="quantity">cantitate</string>
+	<string name="price">preț</string>
+	<string name="product_1">Produs 1</string>
+	<string name="product_2">Produs 2</string>
+</resources>
